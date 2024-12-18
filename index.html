@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic CV Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- CV Form Section -->
+    <section id="cv-form">
+        <div class="container">
+            <h1>Create Your CV</h1>
+            <label for="nameField">Full Name:</label>
+            <input type="text" id="nameField" placeholder="Enter your full name">
+
+            <label for="jobFiled">Job Title:</label>
+            <input type="text" id="jobFiled" placeholder="Enter your job title">
+
+            <label for="contactField">Contact Number:</label>
+            <input type="text" id="contactField" placeholder="Enter your contact number">
+
+            <label for="gmailFiled">Email:</label>
+            <input type="email" id="gmailFiled" placeholder="Enter your email">
+
+            <label for="fbField">Facebook Profile:</label>
+            <input type="url" id="fbField" placeholder="Enter Facebook profile link">
+
+            <label for="linkedField">LinkedIn Profile:</label>
+            <input type="url" id="linkedField" placeholder="Enter LinkedIn profile link">
+
+            <label for="objectiveField">About Yourself:</label>
+            <textarea id="objectiveField" rows="3" placeholder="Write a short objective"></textarea>
+
+            <label for="imgField">Upload Your Picture:</label>
+            <input type="file" id="imgField" accept="image/*">
+
+            <!-- Dynamic Fields -->
+            <div id="la">
+                <h4>Languages</h4>
+                <button onclick="addNewLanField()" id="laAddButton">Add Language</button>
+            </div>
+            <div id="ed">
+                <h4>Education</h4>
+                <button onclick="addNewEdField()" id="aqAddButton">Add Education</button>
+            </div>
+            <div id="we">
+                <h4>Work Experience</h4>
+                <button onclick="addNewWEField()" id="weAddButton">Add Experience</button>
+            </div>
+            <div id="sk">
+                <h4>Skills</h4>
+                <button onclick="addNewAQField()" id="skAddButton">Add Skill</button>
+            </div>
+
+            <!-- Generate CV -->
+            <button onclick="generateCV()">Generate CV</button>
+        </div>
+    </section>
+
+    <!-- CV Template -->
+    <section id="cv-template" style="display: none;">
+        <div class="cv container">
+            <div class="left">
+                <div class="text">
+                    <div class="pic">
+                        <img src="" id="imgTemplate" alt="Profile Picture">
+                    </div>
+                    <h2 id="nName"></h2>
+                    <span id="jJob"></span>
+                </div>
+                <div class="info">
+                    <h3 class="title">Contact</h3>
+                    <ul>
+                        <li><span id="cContact"></span></li>
+                        <li><span id="gGmail"></span></li>
+                        <li><a id="fFacebook" href="#" target="_blank">Facebook</a></li>
+                        <li><a id="lLinkedin" href="#" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+                <div id="lan">
+                    <h3 class="title">Languages</h3>
+                    <ul></ul>
+                </div>
+            </div>
+            <div class="right">
+                <div class="about">
+                    <h2>About Me</h2>
+                    <p id="objectiveT"></p>
+                </div>
+                <div class="exp">
+                    <h2>Education</h2>
+                    <ul id="edu"></ul>
+                    <h2>Work Experience</h2>
+                    <ul id="weT"></ul>
+                    <h2>Skills</h2>
+                    <ul id="skills"></ul>
+                </div>
+            </div>
+        </div>
+        <button onclick="printCV()" class="printCV">Print CV</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
